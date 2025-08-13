@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Manager - Healthy Food Suggestions</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #84fab0, #8fd3f4);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            text-align: center;
+            width: 380px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        h1 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .icon {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            outline: none;
+            transition: 0.3s ease;
+        }
+
+        select:focus, button:hover {
+            border-color: #4CAF50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: left;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .result h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🍎 Diet Manager</h1>
+        
+        <div>
+            <div class="icon">🎯</div>
+            <label for="goal">Select Your Goal:</label>
+            <select id="goal">
+                <option value="">-- Choose Goal --</option>
+                <option value="weight_loss">Weight Loss</option>
+                <option value="muscle_gain">Muscle Gain</option>
+                <option value="general_health">General Health</option>
+            </select>
+        </div>
+
+        <div>
+            <div class="icon">🥗</div>
+            <label for="diet">Select Diet Type:</label>
+            <select id="diet">
+                <option value="">-- Choose Diet --</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="non_veg">Non-Vegetarian</option>
+                <option value="vegan">Vegan</option>
+            </select>
+        </div>
+
+        <button id="getPlan">Get Food Suggestions</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        const plans = {
+            weight_loss: {
+                vegetarian: ["Oats with fruits", "Vegetable salad", "Lentil soup", "Steamed broccoli", "Quinoa with veggies"],
+                non_veg: ["Grilled chicken breast", "Boiled eggs", "Tuna salad", "Steamed fish", "Brown rice with chicken"],
+                vegan: ["Avocado toast", "Vegan protein smoothie", "Quinoa salad", "Chickpea curry", "Steamed spinach"]
+            },
+            muscle_gain: {
+                vegetarian: ["Paneer curry", "Soybean chunks", "Greek yogurt with fruits", "Peanut butter toast", "Milk and almonds"],
+                non_veg: ["Egg omelette", "Grilled salmon", "Chicken breast with rice", "Turkey sandwich", "Beef steak"],
+                vegan: ["Tofu stir-fry", "Vegan protein shake", "Lentils with rice", "Almond butter oatmeal", "Edamame beans"]
+            },
+            general_health: {
+                vegetarian: ["Fruit salad", "Dal with brown rice", "Whole wheat chapati with curry", "Mixed vegetable soup", "Cucumber & carrot sticks"],
+                non_veg: ["Baked fish", "Chicken soup", "Boiled eggs", "Grilled turkey with veggies", "Shrimp salad"],
+                vegan: ["Smoothie bowl", "Vegan burrito", "Roasted sweet potatoes", "Quinoa with beans", "Steamed asparagus"]
+            }
+        };
+
+        document.getElementById("getPlan").addEventListener("click", function () {
+            const goal = document.getElementById("goal").value;
+            const diet = document.getElementById("diet").value;
+            const resultDiv = document.getElementById("result");
+
+            if (!goal || !diet) {
+                resultDiv.innerHTML = "<p style='color:red;'>⚠ Please select both goal and diet type.</p>";
+                return;
+            }
+
+            const suggestions = plans[goal][diet];
+            resultDiv.innerHTML = `<h3>Recommended Foods:</h3><ul>${suggestions.map(item => `<li>${item}</li>`).join('')}</ul>`;
+        });
+    </script>
+
+</body>
+</html>
