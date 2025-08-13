@@ -1,154 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diet Manager - Healthy Food Suggestions</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #84fab0, #8fd3f4);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevOps Lifecycle - Diet Manager</title>
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background: #f7faff;
+        text-align: center;
+        padding: 30px;
+    }
+    h1 {
+        color: #2c3e50;
+        margin-bottom: 30px;
+    }
+    .flowchart {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        position: relative;
+        max-width: 1000px;
+        margin: auto;
+    }
+    .stage {
+        background: #4CAF50;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        min-width: 140px;
+        text-align: center;
+        transition: transform 0.2s ease;
+    }
+    .stage:hover {
+        transform: scale(1.05);
+        background: #45a049;
+    }
+    .arrow {
+        width: 50px;
+        height: 2px;
+        background: #333;
+        align-self: center;
+    }
+    .tooltip {
+        display: none;
+        position: absolute;
+        background: white;
+        color: #333;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        max-width: 350px;
+        text-align: left;
+        z-index: 10;
+    }
+    .tooltip h3 {
+        margin-top: 0;
+        color: #4CAF50;
+    }
+    @media(max-width: 768px) {
+        .flowchart {
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
         }
-
-        .container {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            text-align: center;
-            width: 380px;
-            animation: fadeIn 0.8s ease-in-out;
+        .arrow {
+            width: 2px;
+            height: 30px;
         }
-
-        @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(20px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-
-        h1 {
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-
-        .icon {
-            font-size: 28px;
-            margin-bottom: 5px;
-        }
-
-        select, button {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            font-size: 16px;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-            outline: none;
-            transition: 0.3s ease;
-        }
-
-        select:focus, button:hover {
-            border-color: #4CAF50;
-            box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
-        }
-
-        button {
-            background: #4CAF50;
-            color: white;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-        }
-
-        .result {
-            margin-top: 20px;
-            text-align: left;
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .result h3 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>🍎 Diet Manager</h1>
-        
-        <div>
-            <div class="icon">🎯</div>
-            <label for="goal">Select Your Goal:</label>
-            <select id="goal">
-                <option value="">-- Choose Goal --</option>
-                <option value="weight_loss">Weight Loss</option>
-                <option value="muscle_gain">Muscle Gain</option>
-                <option value="general_health">General Health</option>
-            </select>
-        </div>
+<h1>DevOps Lifecycle - Diet Manager</h1>
 
-        <div>
-            <div class="icon">🥗</div>
-            <label for="diet">Select Diet Type:</label>
-            <select id="diet">
-                <option value="">-- Choose Diet --</option>
-                <option value="vegetarian">Vegetarian</option>
-                <option value="non_veg">Non-Vegetarian</option>
-                <option value="vegan">Vegan</option>
-            </select>
-        </div>
+<div class="flowchart">
+    <div class="stage" data-title="Planning" data-info="Defining the diet manager features and flow." data-code="We decided on dropdowns for Goal and Diet Type, a button to fetch suggestions, and a display area for results. No coding yet — just feature mapping.">1. Planning</div>
+    <div class="arrow"></div>
+    <div class="stage" data-title="Coding" data-info="Writing HTML, CSS, and JS for the app." data-code="HTML: Structure with dropdowns, button, and result div. CSS: Styling green theme. JS: Stored diet plans in objects, filtered based on user choice, updated DOM.">2. Coding</div>
+    <div class="arrow"></div>
+    <div class="stage" data-title="Building" data-info="Linking files and preparing assets." data-code="Linked CSS and JS files to HTML. Ensured proper class and ID names for targeting in CSS and JavaScript.">3. Building</div>
+    <div class="arrow"></div>
+    <div class="stage" data-title="Testing" data-info="Checking app functionality." data-code="Tested selecting Goal and Diet Type, clicked button, verified suggestions appear correctly. Checked for empty selection errors.">4. Testing</div>
+    <div class="arrow"></div>
+    <div class="stage" data-title="Release" data-info="Preparing for deployment." data-code="Removed unused variables, cleaned CSS/JS, ensured no console errors.">5. Release</div>
+    <div class="arrow"></div>
+    <div class="stage" data-title="Deploy" data-info="Making the app live." data-code="Uploaded to GitHub Pages or Netlify. Checked on mobile and desktop browsers.">6. Deploy</div>
+    <div class="arrow"></div>
+    <div class="stage" data-title="Operate" data-info="Running the application for users." data-code="Users select their options, click the button, and get instant diet suggestions.">7. Operate</div>
+    <div class="arrow"></div>
+    <div class="stage" data-title="Monitor" data-info="Tracking app performance and feedback." data-code="Checked browser performance tools, tracked user choices, planned updates for more food options.">8. Monitor</div>
+</div>
 
-        <button id="getPlan">Get Food Suggestions</button>
+<div class="tooltip" id="tooltip"></div>
 
-        <div class="result" id="result"></div>
-    </div>
+<script>
+    const stages = document.querySelectorAll(".stage");
+    const tooltip = document.getElementById("tooltip");
 
-    <script>
-        const plans = {
-            weight_loss: {
-                vegetarian: ["Oats with fruits", "Vegetable salad", "Lentil soup", "Steamed broccoli", "Quinoa with veggies"],
-                non_veg: ["Grilled chicken breast", "Boiled eggs", "Tuna salad", "Steamed fish", "Brown rice with chicken"],
-                vegan: ["Avocado toast", "Vegan protein smoothie", "Quinoa salad", "Chickpea curry", "Steamed spinach"]
-            },
-            muscle_gain: {
-                vegetarian: ["Paneer curry", "Soybean chunks", "Greek yogurt with fruits", "Peanut butter toast", "Milk and almonds"],
-                non_veg: ["Egg omelette", "Grilled salmon", "Chicken breast with rice", "Turkey sandwich", "Beef steak"],
-                vegan: ["Tofu stir-fry", "Vegan protein shake", "Lentils with rice", "Almond butter oatmeal", "Edamame beans"]
-            },
-            general_health: {
-                vegetarian: ["Fruit salad", "Dal with brown rice", "Whole wheat chapati with curry", "Mixed vegetable soup", "Cucumber & carrot sticks"],
-                non_veg: ["Baked fish", "Chicken soup", "Boiled eggs", "Grilled turkey with veggies", "Shrimp salad"],
-                vegan: ["Smoothie bowl", "Vegan burrito", "Roasted sweet potatoes", "Quinoa with beans", "Steamed asparagus"]
-            }
-        };
-
-        document.getElementById("getPlan").addEventListener("click", function () {
-            const goal = document.getElementById("goal").value;
-            const diet = document.getElementById("diet").value;
-            const resultDiv = document.getElementById("result");
-
-            if (!goal || !diet) {
-                resultDiv.innerHTML = "<p style='color:red;'>⚠ Please select both goal and diet type.</p>";
-                return;
-            }
-
-            const suggestions = plans[goal][diet];
-            resultDiv.innerHTML = `<h3>Recommended Foods:</h3><ul>${suggestions.map(item => `<li>${item}</li>`).join('')}</ul>`;
+    stages.forEach(stage => {
+        stage.addEventListener("click", (e) => {
+            tooltip.innerHTML = `
+                <h3>${stage.getAttribute("data-title")}</h3>
+                <p><strong>DevOps Meaning:</strong> ${stage.getAttribute("data-info")}</p>
+                <p><strong>In Diet Manager Code:</strong> ${stage.getAttribute("data-code")}</p>
+            `;
+            tooltip.style.display = "block";
+            tooltip.style.top = e.pageY + 10 + "px";
+            tooltip.style.left = e.pageX + 10 + "px";
         });
-    </script>
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!e.target.classList.contains("stage")) {
+            tooltip.style.display = "none";
+        }
+    });
+</script>
 
 </body>
 </html>
